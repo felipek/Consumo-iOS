@@ -17,6 +17,10 @@
 		EE06E74512D509DD006B75F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE06E74412D509DD006B75F1 /* Localizable.strings */; };
 		EEAC1CB412D5119700C76D02 /* Consumo-icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = EEAC1CB112D5119700C76D02 /* Consumo-icon-57.png */; };
 		EEAC1CB512D5119700C76D02 /* Consumo-icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = EEAC1CB212D5119700C76D02 /* Consumo-icon-114.png */; };
+		EEAC1DC112D5768600C76D02 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EEAC1DC012D5768600C76D02 /* Reachability.m */; };
+		EEAC1DD412D5770800C76D02 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAC1DD312D5770800C76D02 /* SystemConfiguration.framework */; };
+		EEAC1DE712D57C0700C76D02 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEAC1DE612D57C0700C76D02 /* AboutViewController.m */; };
+		EEAC1ED912D58A4D00C76D02 /* Thanks.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEAC1ED812D58A4D00C76D02 /* Thanks.plist */; };
 		EEE08CCD12D2BFB8002192E1 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE08CCC12D2BFB8002192E1 /* AccountsViewController.m */; };
 		EEE08CD412D2BFEC002192E1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE08CD312D2BFEC002192E1 /* BaseViewController.m */; };
 		EEE08D0512D2C282002192E1 /* Accounts.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE08D0412D2C282002192E1 /* Accounts.m */; };
@@ -44,10 +48,16 @@
 		32CA4F630368D1EE00C91783 /* Consumo_iOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consumo_iOS_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Consumo_iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Consumo_iOS-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		EE06E6A112D4FF67006B75F1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		EE06E74612D509E2006B75F1 /* Portuguese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Portuguese; path = "Projects/Consumo-iOS/Resources/Portuguese.lproj/Localizable.strings"; sourceTree = DEVELOPER_DIR; };
+		EE06E74612D509E2006B75F1 /* Portuguese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Portuguese; path = Resources/Portuguese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EEAC1CB112D5119700C76D02 /* Consumo-icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Consumo-icon-57.png"; path = "Resources/Bitmap/Consumo-icon-57.png"; sourceTree = "<group>"; };
 		EEAC1CB212D5119700C76D02 /* Consumo-icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Consumo-icon-114.png"; path = "Resources/Bitmap/Consumo-icon-114.png"; sourceTree = "<group>"; };
 		EEAC1CB312D5119700C76D02 /* Consumo-icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Consumo-icon-512.png"; path = "Resources/Bitmap/Consumo-icon-512.png"; sourceTree = "<group>"; };
+		EEAC1DBF12D5768600C76D02 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		EEAC1DC012D5768600C76D02 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		EEAC1DD312D5770800C76D02 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EEAC1DE512D57C0700C76D02 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = "Projects/Consumo-iOS/Classes/AboutViewController.h"; sourceTree = DEVELOPER_DIR; };
+		EEAC1DE612D57C0700C76D02 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = "Projects/Consumo-iOS/Classes/AboutViewController.m"; sourceTree = DEVELOPER_DIR; };
+		EEAC1ED812D58A4D00C76D02 /* Thanks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Thanks.plist; path = Resources/Thanks.plist; sourceTree = "<group>"; };
 		EEE08CCB12D2BFB8002192E1 /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountsViewController.h; path = Views/AccountsViewController.h; sourceTree = "<group>"; };
 		EEE08CCC12D2BFB8002192E1 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountsViewController.m; path = Views/AccountsViewController.m; sourceTree = "<group>"; };
 		EEE08CD212D2BFEC002192E1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Views/BaseViewController.h; sourceTree = "<group>"; };
@@ -85,6 +95,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				EE06E6A212D4FF67006B75F1 /* MessageUI.framework in Frameworks */,
+				EEAC1DD412D5770800C76D02 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +149,9 @@
 				EEAC1CAE12D5118C00C76D02 /* Bitmap */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Consumo_iOS-Info.plist */,
-				EE06E74412D509DD006B75F1 /* Localizable.strings */,
 				EEE08FE812D358B3002192E1 /* Services.plist */,
+				EEAC1ED812D58A4D00C76D02 /* Thanks.plist */,
+				EE06E74412D509DD006B75F1 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -151,6 +163,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				EE06E6A112D4FF67006B75F1 /* MessageUI.framework */,
+				EEAC1DD312D5770800C76D02 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +178,15 @@
 			name = Bitmap;
 			sourceTree = "<group>";
 		};
+		EEAC1DC212D5768B00C76D02 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				EEAC1DBF12D5768600C76D02 /* Reachability.h */,
+				EEAC1DC012D5768600C76D02 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		EEE08CFD12D2C25C002192E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +198,8 @@
 				EEE08D5512D2C8B7002192E1 /* StatsViewController.m */,
 				EEE0900912D35B6F002192E1 /* SetupAccountViewController.h */,
 				EEE08D7712D2CA7E002192E1 /* SetupAccountViewController.m */,
+				EEAC1DE512D57C0700C76D02 /* AboutViewController.h */,
+				EEAC1DE612D57C0700C76D02 /* AboutViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -194,6 +218,7 @@
 		EEE08DED12D2D182002192E1 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				EEAC1DC212D5768B00C76D02 /* Reachability */,
 				EEE08DF012D2D18B002192E1 /* JSON */,
 			);
 			name = External;
@@ -274,6 +299,7 @@
 				EE06E74512D509DD006B75F1 /* Localizable.strings in Resources */,
 				EEAC1CB412D5119700C76D02 /* Consumo-icon-57.png in Resources */,
 				EEAC1CB512D5119700C76D02 /* Consumo-icon-114.png in Resources */,
+				EEAC1ED912D58A4D00C76D02 /* Thanks.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +324,8 @@
 				EEE08E0112D2D18B002192E1 /* SBJsonBase.m in Sources */,
 				EEE08E0212D2D18B002192E1 /* SBJsonParser.m in Sources */,
 				EEE08E0312D2D18B002192E1 /* SBJsonWriter.m in Sources */,
+				EEAC1DC112D5768600C76D02 /* Reachability.m in Sources */,
+				EEAC1DE712D57C0700C76D02 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Felipe Kellermann (R3QK7JAUQ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Kellermann";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -327,7 +355,7 @@
 				GCC_PREFIX_HEADER = Consumo_iOS_Prefix.pch;
 				INFOPLIST_FILE = "Consumo_iOS-Info.plist";
 				PRODUCT_NAME = "Consumo-iOS";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC44C448-5CBA-44B2-A6A8-CEE9AAB6B072";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "147E2D35-4149-4756-A16B-89B348CF227F";
 			};
 			name = Debug;
 		};
@@ -335,11 +363,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Kellermann";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Consumo_iOS_Prefix.pch;
 				INFOPLIST_FILE = "Consumo_iOS-Info.plist";
 				PRODUCT_NAME = "Consumo-iOS";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "147E2D35-4149-4756-A16B-89B348CF227F";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -348,12 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Felipe Kellermann (R3QK7JAUQ4)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "313C6B59-B951-4D1B-B793-C5A61347A578";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -362,12 +393,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Felipe Kellermann (R3QK7JAUQ4)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "313C6B59-B951-4D1B-B793-C5A61347A578";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
