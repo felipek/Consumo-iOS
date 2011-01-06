@@ -49,12 +49,14 @@
 	[textPassword setSecureTextEntry:YES];
 	[textPassword setPlaceholder:[NSLocalizedString(@"1234", @"") stringByAppendingString:@" "]];
 	[textPassword setReturnKeyType:UIReturnKeyDone];
+	[textPassword setDelegate:self];
 	[textPassword setTag:50];
 	
 	textLabel = [[UITextField alloc] initWithFrame:CGRectMake(100, 10, 185, 23)];
 	[textLabel setTextAlignment:UITextAlignmentRight];
 	[textLabel setPlaceholder:[NSLocalizedString(@"Conta Pessoal", @"") stringByAppendingString:@" "]];
 	[textLabel setReturnKeyType:UIReturnKeyDone];
+	[textLabel setDelegate:self];
 	[textLabel setTag:50];
 	
 	[tableView setContentInset:UIEdgeInsetsMake(0, 0, 215, 0)];
@@ -89,34 +91,31 @@
 	[super viewDidAppear:animated];
 }
 
-
-
-
-
-
 - (BOOL)save
 {
 	if ([textUsername.text length] == 0) {
 		[self.navigationItem setPrompt:NSLocalizedString(@"Username must be specified", @"")];
+		[textUsername becomeFirstResponder];
 		return NO;
 	} else if ([textPassword.text length] == 0) {
 		[self.navigationItem setPrompt:NSLocalizedString(@"Password must be specified", @"")];
+		[textPassword becomeFirstResponder];
 		return NO;
 	}
 
 	if (account == nil) {
-		NSDictionary *newAccount = [[Accounts singleton] createWithLabel:textLabel.text
-																 carrier:serviceCurrent
-																username:textUsername.text
-															 andPassword:textPassword.text];
+		NSDictionary *newAccount = [[Accounts singleton] newAccountWithLabel:textLabel.text
+																	 carrier:serviceCurrent
+																	username:textUsername.text
+																 andPassword:textPassword.text];
 		
 		[delegate didCreateAccount:newAccount];
 	} else {
 		// TODO FEK: This looks ugly ;-)  Move account to an object.
-		// TODO FEK: Provider.
 		[account setValue:textUsername.text forKey:@"Username"];
 		[account setValue:textPassword.text forKey:@"Password"];
 		[account setValue:textLabel.text forKey:@"Label"];
+		[account setValue:serviceCurrent forKey:@"Carrier"];
 
 		[delegate didChangeAccount:account];
 	}
@@ -172,7 +171,7 @@
 	
 	cell = [table dequeueReusableCellWithIdentifier:@"cell"];
 	if (cell == nil)
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"] autorelease];
 	
 	UIView *tempView = [cell.contentView viewWithTag:50];
 	[tempView removeFromSuperview];
@@ -233,8 +232,7 @@
 			[actionSheet setCancelButtonIndex:[servicesList count] + 1];
 			
 			[actionSheet showFromToolbar:self.navigationController.toolbar];
-			
-			// TODO.
+			[actionSheet release];			
 			break;
 		case 1:
 			switch (indexPath.row) {
@@ -280,6 +278,14 @@
 											   otherButtonTitles:nil] autorelease];
 		[alert show];
 	}
+}
+
+#pragma mark Text field
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	[self buttonSaveTouched];
+	return YES;
 }
 
 #pragma mark Memory management

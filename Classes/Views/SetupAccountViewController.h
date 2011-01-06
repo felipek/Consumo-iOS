@@ -19,7 +19,7 @@
 
 @end
 
-@interface SetupAccountViewController : BaseViewController <UIActionSheetDelegate>
+@interface SetupAccountViewController : BaseViewController <UIActionSheetDelegate, UITextFieldDelegate>
 {
 	UIBarButtonItem				*buttonSave;
 	UIBarButtonItem				*buttonCancel;
