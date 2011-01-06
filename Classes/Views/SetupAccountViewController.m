@@ -168,11 +168,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
 	UITableViewCell *cell = nil;
 	
 	cell = [table dequeueReusableCellWithIdentifier:@"cell"];
 	if (cell == nil)
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"] autorelease];
 	
 	UIView *tempView = [cell.contentView viewWithTag:50];
 	[tempView removeFromSuperview];
@@ -210,20 +213,25 @@
 	UITextField *field = (UITextField *) [cell.contentView viewWithTag:50];
 	[field setTextColor:cell.detailTextLabel.textColor];
 
+	[pool drain];
+	
 	return cell;
 }
 
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
 	switch (indexPath.section) {
 		case 0:
 			[table deselectRowAtIndexPath:indexPath animated:YES];
 			
-			UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select a service", @"")
+			UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select a service", @"")
 																	 delegate:self
 															cancelButtonTitle:nil
 													   destructiveButtonTitle:nil
-															otherButtonTitles:nil];
+															otherButtonTitles:nil] autorelease];
 			
 			for (NSString *service in servicesList)
 				[actionSheet addButtonWithTitle:[[self serviceForName:service] objectForKey:@"Name"]];
@@ -233,6 +241,8 @@
 			[actionSheet setCancelButtonIndex:[servicesList count] + 1];
 			
 			[actionSheet showFromToolbar:self.navigationController.toolbar];
+			
+			[pool drain];
 			
 			// TODO.
 			break;

@@ -33,7 +33,7 @@
 	NSString *url = [NSString stringWithFormat:@"http://nyvra.net/service/consumo/%@?username=%@&password=%@",
 					 [account objectForKey:@"Carrier"], [account objectForKey:@"Username"], [account objectForKey:@"Password"]];
 
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+	NSURLRequest *request = [[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]] autorelease];
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	
 	NSString *stringData = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
@@ -53,7 +53,8 @@
 
 	[delegate consumo:self didFinishWithData:content];
 	
-	[pool release];
+	[pool drain];
+	
 }
 
 - (void)start

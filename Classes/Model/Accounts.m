@@ -52,7 +52,10 @@
 
 - (NSDictionary *)createWithLabel:(NSString *)label carrier:(NSString *)carrier username:(NSString *)username andPassword:(NSString *)password
 {
-	NSMutableDictionary *account = [[NSMutableDictionary alloc] init];
+	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	NSMutableDictionary *account = [[[NSMutableDictionary alloc] init] autorelease];
 	[account setObject:carrier forKey:@"Carrier"];
 	[account setObject:username forKey:@"Username"];
 	[account setObject:password forKey:@"Password"];
@@ -63,6 +66,8 @@
 	
 	
 	[accounts addObject:account];
+	
+	[pool drain];
 	
 	return account;
 }

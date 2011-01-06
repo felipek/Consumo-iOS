@@ -20,7 +20,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					716,
 					20,
 					48.16259765625,
 					43,
@@ -37,8 +37,15 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316038090;
-			PBXWorkspaceStateSaveDate = 316038090;
+			PBXPerProjectTemplateStateSaveDate = 316038948;
+			PBXWorkspaceStateSaveDate = 316038948;
+		};
+		perUserProjectItems = {
+			6D2A664B12D65D8400D646AD = 6D2A664B12D65D8400D646AD /* PBXTextBookmark */;
+			6D2A666712D65F2100D646AD = 6D2A666712D65F2100D646AD /* PBXTextBookmark */;
+			6D2A666812D65F2100D646AD = 6D2A666812D65F2100D646AD /* PBXTextBookmark */;
+			6D2A666912D65F2100D646AD = 6D2A666912D65F2100D646AD /* PBXTextBookmark */;
+			6D2A666A12D65F2100D646AD = 6D2A666A12D65F2100D646AD /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6D2A664212D65BCB00D646AD /* Source Control */;
 		userBuildSettings = {
@@ -84,5 +91,101 @@
 	6D2A664312D65BCB00D646AD /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	6D2A664B12D65D8400D646AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EEE08D0312D2C282002192E1 /* Accounts.h */;
+		name = "Accounts.h: 15";
+		rLen = 0;
+		rLoc = 255;
+		rType = 0;
+		vrLen = 618;
+		vrLoc = 0;
+	};
+	6D2A666012D65F0400D646AD /* NSAutoreleasePool.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSAutoreleasePool.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAutoreleasePool.h;
+		sourceTree = "<absolute>";
+	};
+	6D2A666712D65F2100D646AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EEE08D7712D2CA7E002192E1 /* SetupAccountViewController.m */;
+		name = "SetupAccountViewController.m: 218";
+		rLen = 0;
+		rLoc = 5915;
+		rType = 0;
+		vrLen = 1046;
+		vrLoc = 0;
+	};
+	6D2A666812D65F2100D646AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EEE08D0412D2C282002192E1 /* Accounts.m */;
+		name = "Accounts.m: 56";
+		rLen = 17;
+		rLoc = 1063;
+		rType = 0;
+		vrLen = 927;
+		vrLoc = 715;
+	};
+	6D2A666912D65F2100D646AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6D2A666012D65F0400D646AD /* NSAutoreleasePool.h */;
+		rLen = 1;
+		rLoc = 6;
+		rType = 1;
+	};
+	6D2A666A12D65F2100D646AD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6D2A666B12D65F2100D646AD /* NSAutoreleasePool.h */;
+		name = "NSAutoreleasePool.h: 7";
+		rLen = 42;
+		rLoc = 118;
+		rType = 0;
+		vrLen = 459;
+		vrLoc = 0;
+	};
+	6D2A666B12D65F2100D646AD /* NSAutoreleasePool.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSAutoreleasePool.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAutoreleasePool.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1220, 646}}";
+			sepNavSelRange = "{118, 42}";
+			sepNavVisRange = "{0, 459}";
+			sepNavWindowFrame = "{{1, 4}, {1279, 774}}";
+		};
+	};
+	EEE08D0312D2C282002192E1 /* Accounts.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1013, 542}}";
+			sepNavSelRange = "{255, 0}";
+			sepNavVisRange = "{0, 618}";
+		};
+	};
+	EEE08D0412D2C282002192E1 /* Accounts.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1006, 1170}}";
+			sepNavSelRange = "{1063, 17}";
+			sepNavVisRange = "{715, 927}";
+			sepNavWindowFrame = "{{1, 4}, {1279, 774}}";
+		};
+	};
+	EEE08D7712D2CA7E002192E1 /* SetupAccountViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1219, 4199}}";
+			sepNavSelRange = "{6914, 0}";
+			sepNavVisRange = "{6021, 1036}";
+		};
+	};
+	EEE08DB612D2CDEC002192E1 /* Consumo.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1219, 884}}";
+			sepNavSelRange = "{422, 17}";
+			sepNavVisRange = "{140, 946}";
+		};
 	};
 }
