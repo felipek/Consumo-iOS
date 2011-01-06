@@ -9,6 +9,7 @@
 #import "AccountsViewController.h"
 #import "StatsViewController.h"
 #import "SetupAccountViewController.h"
+#import "AboutViewController.h"
 #import "Accounts.h"
 
 @implementation AccountsViewController
@@ -19,19 +20,23 @@
 {
 	[super loadView];
 	
-	[tableView setContentInset:UIEdgeInsetsMake(30, 0, 0, 0)];
 	[tableView setAllowsSelectionDuringEditing:YES];
 	
 	buttonEdit = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", @"")
 												  style:UIBarButtonItemStyleBordered
 												 target:self
 												 action:@selector(buttonEditTouched)];
+	
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	[button addTarget:self action:@selector(buttonAboutTouched) forControlEvents:UIControlEventTouchUpInside];
+	buttonAbout = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 - (void)viewDidLoad
 {
 	[self setTitle:NSLocalizedString(@"Accounts", @"")];
 	[self.navigationItem setRightBarButtonItem:buttonEdit];
+	[self.navigationItem setLeftBarButtonItem:buttonAbout];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,10 +98,21 @@
 	if ([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
 		[buttonEdit setTitle:NSLocalizedString(@"Editar", @"")];
+		[buttonEdit setStyle:UIBarButtonItemStyleBordered];
 	} else {
 		[tableView setEditing:YES animated:YES];
 		[buttonEdit setTitle:NSLocalizedString(@"Done", @"")];
+		[buttonEdit setStyle:UIBarButtonItemStyleDone];
 	}
+}
+
+- (void)buttonAboutTouched
+{
+	AboutViewController *about = [[[AboutViewController alloc] init] autorelease];
+	UINavigationController *navigation = [[[UINavigationController alloc] initWithRootViewController:about] autorelease];
+	[navigation.navigationBar setTintColor:self.navigationController.navigationBar.tintColor];
+	[about setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+	[self presentModalViewController:navigation animated:YES];	
 }
 
 #pragma mark Account setup delegate
@@ -208,6 +224,7 @@
 - (void)dealloc
 {
 	[buttonEdit release];
+	[buttonAbout release];
     [super dealloc];
 }
 

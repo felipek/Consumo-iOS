@@ -15,11 +15,13 @@
 	BOOL			autoSetup;
 	BOOL			animateCreation;
 	UIBarButtonItem	*buttonEdit;
+	UIBarButtonItem	*buttonAbout;
 	NSDictionary	*animateUpdateAccount;
 }
 
 - (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)presentSetupViewWithAccount:(NSDictionary *)account;
 - (void)buttonEditTouched;
+- (void)buttonAboutTouched;
 
 @end
