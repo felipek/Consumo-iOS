@@ -28,4 +28,14 @@
 	Consumo				*request;
 }
 
+- (void)cacheLoad;
+- (void)cacheSave;
+- (void)buttonRefreshTouched;
+- (NSString *)formatData;
+- (MFMailComposeViewController *)newMail;
+- (void)buttonEmailTouched;
+- (void)buttonIncorrectTouched;
+- (void)refresh;
+- (void)stopActivity;
+
 @end

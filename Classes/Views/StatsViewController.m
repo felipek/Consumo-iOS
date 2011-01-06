@@ -17,7 +17,8 @@
 		index = anIndex;
 		account = [[Accounts singleton] accountAtIndex:index];
 		NSString *ID = [NSString stringWithFormat:@"Cache-%@-%@.plist", [account objectForKey:@"Carrier"], [account objectForKey:@"Username"]];
-		path = [[NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", ID]] retain];		
+		NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+		path = [[documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", ID]] retain];		
 	}
 	
 	return self;
@@ -34,9 +35,12 @@
 
 - (void)viewDidLoad
 {
-	// FIXME: No label?
 	[self.navigationController.toolbar setTintColor:self.navigationController.navigationBar.tintColor];
-	[self setTitle:[account objectForKey:@"Label"]];
+	
+	if ([[account objectForKey:@"Label"] length] > 0)
+		[self setTitle:[account objectForKey:@"Label"]];
+	else
+		[self setTitle:[account objectForKey:@"Username"]];
 	
 	buttonEmail = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"E-mail", @"")
 												   style:UIBarButtonItemStyleBordered
