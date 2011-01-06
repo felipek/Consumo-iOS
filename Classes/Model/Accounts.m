@@ -15,7 +15,8 @@
 - (id)init
 {
 	if (self = [super init]) {
-		path = [[NSHomeDirectory() stringByAppendingPathComponent:@"Accounts.plist"] retain];
+		NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+		path = [[documents stringByAppendingPathComponent:@"Accounts.plist"] retain];
 
 		if ([[NSFileManager defaultManager] fileExistsAtPath:path])
 			accounts = [[NSArray arrayWithContentsOfFile:path] mutableCopy];
@@ -50,7 +51,7 @@
 	return [[self allAccounts] objectAtIndex:index];
 }
 
-- (NSDictionary *)createWithLabel:(NSString *)label carrier:(NSString *)carrier username:(NSString *)username andPassword:(NSString *)password
+- (NSDictionary *)newAccountWithLabel:(NSString *)label carrier:(NSString *)carrier username:(NSString *)username andPassword:(NSString *)password
 {
 	NSMutableDictionary *account = [[NSMutableDictionary alloc] init];
 	[account setObject:carrier forKey:@"Carrier"];

@@ -17,7 +17,7 @@
 + (Accounts *)singleton;
 - (NSArray *)allAccounts;
 - (NSDictionary *)accountAtIndex:(NSInteger)index;
-- (NSDictionary *)createWithLabel:(NSString *)label carrier:(NSString *)carrier username:(NSString *)username andPassword:(NSString *)password;
+- (NSDictionary *)newAccountWithLabel:(NSString *)label carrier:(NSString *)carrier username:(NSString *)username andPassword:(NSString *)password;
 - (void)removeAccount:(NSDictionary *)account;
 - (void)commit;
 
