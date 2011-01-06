@@ -35,6 +35,7 @@
 
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	[request release];
 	
 	NSString *stringData = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 
