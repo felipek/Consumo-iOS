@@ -9,6 +9,10 @@
 #import "SetupAccountViewController.h"
 #import "Accounts.h"
 
+#define UserTag     10
+#define PassTag     20
+#define LabelTag    30
+
 @implementation SetupAccountViewController
 
 @synthesize delegate;
@@ -42,7 +46,9 @@
 	[textUsername setTextAlignment:UITextAlignmentRight];
 	[textUsername setKeyboardType:UIKeyboardTypePhonePad];
 	[textUsername setPlaceholder:[NSLocalizedString(@"5198581234", @"") stringByAppendingString:@" "]];
-	[textUsername setTag:50];
+	[textUsername setTag:UserTag];
+    [textUsername setDelegate:self];
+	[textUsername setTag:UserTag];
 
 	textPassword = [[UITextField alloc] initWithFrame:CGRectMake(100, 10, 185, 23)];
 	[textPassword setTextAlignment:UITextAlignmentRight];
@@ -50,14 +56,14 @@
 	[textPassword setPlaceholder:[NSLocalizedString(@"1234", @"") stringByAppendingString:@" "]];
 	[textPassword setReturnKeyType:UIReturnKeyDone];
 	[textPassword setDelegate:self];
-	[textPassword setTag:50];
+	[textPassword setTag:PassTag];
 	
 	textLabel = [[UITextField alloc] initWithFrame:CGRectMake(100, 10, 185, 23)];
 	[textLabel setTextAlignment:UITextAlignmentRight];
 	[textLabel setPlaceholder:[NSLocalizedString(@"Conta Pessoal", @"") stringByAppendingString:@" "]];
 	[textLabel setReturnKeyType:UIReturnKeyDone];
 	[textLabel setDelegate:self];
-	[textLabel setTag:50];
+	[textLabel setTag:LabelTag];
 	
 	[tableView setContentInset:UIEdgeInsetsMake(0, 0, 215, 0)];
 	[tableView setScrollIndicatorInsets:tableView.contentInset];
@@ -95,11 +101,21 @@
 {
 	if ([textUsername.text length] == 0) {
 		[self.navigationItem setPrompt:NSLocalizedString(@"Username must be specified", @"")];
-		[textUsername becomeFirstResponder];
+        
+        if (![textUsername isFirstResponder]) {    
+            [textUsername becomeFirstResponder];
+        }        
 		return NO;
 	} else if ([textPassword.text length] == 0) {
 		[self.navigationItem setPrompt:NSLocalizedString(@"Password must be specified", @"")];
-		[textPassword becomeFirstResponder];
+
+        if (![textPassword isFirstResponder]) {
+            [textPassword becomeFirstResponder];
+        }
+        
+        NSUInteger indices[] = {1, 1};
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathWithIndexes:indices length:2];
+        [tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];        
 		return NO;
 	}
 
@@ -280,12 +296,62 @@
 	}
 }
 
-#pragma mark Text field
+#pragma mark TextField Delegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if ([textField tag] == UserTag) {
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        return !([newString length] > 10);        
+    }
+    
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if ([textField tag] == UserTag){
+        if (![textUsername isFirstResponder]) {
+            [textUsername becomeFirstResponder];            
+        }
+    } else if ([textField tag] == PassTag) {
+        if ([[self.navigationItem prompt] isEqualToString:NSLocalizedString(@"Username must be specified", @"")]) {
+            [self.navigationItem setPrompt:nil];
+        }
+        if (![textPassword isFirstResponder]) {
+            [textPassword becomeFirstResponder];
+            
+            NSUInteger indices[] = {0, 0};
+            NSIndexPath *scrollIndexPath = [NSIndexPath indexPathWithIndexes:indices length:2];
+            [tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        }
+    } else if ([textField tag] == LabelTag) {
+        if (![textLabel isFirstResponder]) {
+            [textLabel becomeFirstResponder];
+        }
+        
+        NSUInteger indices[] = {2, 0};
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathWithIndexes:indices length:2];
+        [tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];        
+    }
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	[self buttonSaveTouched];
-	return YES;
+    [self.navigationItem setPrompt:nil];
+
+    if ([textField tag] == UserTag)
+        [textUsername resignFirstResponder];
+    else if ([textField tag] == PassTag)
+        [textPassword resignFirstResponder];
+    else if ([textField tag] == LabelTag)
+        [textLabel resignFirstResponder];
+
+    NSUInteger indices[] = {0, 0};
+    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathWithIndexes:indices length:2];
+    [tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];    
+    
+    return YES;
 }
 
 #pragma mark Memory management
