@@ -100,6 +100,9 @@
 		[buttonEdit setTitle:NSLocalizedString(@"Editar", @"")];
 		[buttonEdit setStyle:UIBarButtonItemStyleBordered];
 	} else {
+        if ([[[Accounts singleton] allAccounts] count] == 0)
+            return;
+            
 		[tableView setEditing:YES animated:YES];
 		[buttonEdit setTitle:NSLocalizedString(@"Done", @"")];
 		[buttonEdit setStyle:UIBarButtonItemStyleDone];
@@ -189,6 +192,12 @@
 		
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
+    
+    if ([[[Accounts singleton] allAccounts] count] == 0) {
+        [tableView setEditing:NO animated:YES];
+		[buttonEdit setTitle:NSLocalizedString(@"Editar", @"")];
+		[buttonEdit setStyle:UIBarButtonItemStyleBordered];        
+    }
 }
 
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath
